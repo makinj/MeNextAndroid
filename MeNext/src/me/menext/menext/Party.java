@@ -21,9 +21,9 @@ import android.widget.ListView;
 
 public class Party extends ActionBarActivity {
 	ListView queueView;
-	EditText addVideoView;
+	EditText searchVideoView;
 	JSONArray queueData;
-	String newVideoId;
+	String searchTerm;
 	String partyId;
 
 	@Override
@@ -34,20 +34,25 @@ public class Party extends ActionBarActivity {
 		partyId = intent.getStringExtra(ListParties.PARTYID);
 		
         queueView = (ListView) findViewById(R.id.queue_list);
-        addVideoView = (EditText) findViewById(R.id.add_video);
+        searchVideoView = (EditText) findViewById(R.id.search_video);
 		new getQueue().execute(this);
-		findViewById(R.id.add_video_button_id).setOnClickListener(
+		findViewById(R.id.search_video_button_id).setOnClickListener(
 			new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					attemptAddVideo();
+					SearchVideo();
 				}
 			}
 		);
 	}
-	public Void attemptAddVideo() {
-		newVideoId = addVideoView.getText().toString();
-		new addVideo().execute(this);
+	public Void SearchVideo() {
+		searchTerm = searchVideoView.getText().toString();
+		Intent intent = new Intent(this, SearchResults.class);
+		Bundle extras = new Bundle();
+		extras.putString("SEARCHTERM",searchTerm);
+		extras.putString("PARTYID",partyId);
+		intent.putExtras(extras);
+		startActivity(intent);
 		return null;
 	}
 	
@@ -78,8 +83,8 @@ public class Party extends ActionBarActivity {
 					for(int i = 0, count = queueData.length(); i< count; i++)
 					{
 					    try {
-					        String party = queueData.getJSONObject(i).getString("title");
-					        videos.add(party);
+					        String video = queueData.getJSONObject(i).getString("title");
+					        videos.add(video);
 					    }
 					    catch (JSONException e) {
 					        e.printStackTrace();
@@ -97,42 +102,5 @@ public class Party extends ActionBarActivity {
 				e.printStackTrace();
 			}
 	   }
-
-	}
-	
-	public class addVideo extends AsyncTask<Activity, Void, String> {
-		private Activity activity;
-	    @Override
-	    protected String doInBackground(Activity... activities) {
-	    	activity = activities[0];
-	        ServiceHandler sh = new ServiceHandler();
-	        List<NameValuePair> params = new ArrayList<NameValuePair>();
-	        params.add(new BasicNameValuePair("action", "addVideo"));
-	        params.add(new BasicNameValuePair("youtubeId", newVideoId));
-	        params.add(new BasicNameValuePair("partyId", partyId));
-	        return sh.makeServiceCall(activity, "menext", ServiceHandler.POST, params);
-	    }
-
-	    protected void onPostExecute(String result) {
-	    	System.out.println(result);
-			JSONObject jObject = null;
-			try {
-				jObject = new JSONObject(result);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			String status = null;
-			try {
-				status = jObject.getString("status");
-			} catch (JSONException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			if (status.equalsIgnoreCase("success")) {
-				attemptGetQueue();
-			}
-	   }
-
-	}
+	}	
 }

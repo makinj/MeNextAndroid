@@ -49,6 +49,9 @@ public class ServiceHandler {
       DefaultHttpClient httpClient = ((GlobalVar) activity.getApplication()).httpClient;
       SharedPreferences sharedpreferences = ((GlobalVar) activity.getApplication()).sharedpreferences;
       String url = activity.getString(R.string.menext_handler_url);
+      if(site_name.equalsIgnoreCase("youtube")){
+          url = activity.getString(R.string.youtube_search_url);
+      }
       try {
             // http client
             HttpEntity httpEntity = null;

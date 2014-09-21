@@ -5,6 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="menext_url">menext.me</string>
     <string name="menext_handler_url">http://menext.me/handler.php</string>
+    <string name="youtube_search_url">https://www.googleapis.com/youtube/v3/search</string>
     <string name="action_logout">Log Out</string>
     <string name="title_activity_party">Party</string>
     <string name="new_party_message">New Party Name</string>
@@ -13,4 +14,7 @@
     <string name="unjoined_title">Unjoined Parties</string>
     <string name="new_video_message">New Song YouTube Id</string>
     <string name="new_video_button">Add!</string>
+    <string name="title_activity_search_results">SearchResults</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

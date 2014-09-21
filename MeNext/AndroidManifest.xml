@@ -34,6 +34,10 @@
             android:name="me.menext.menext.Party"
             android:label="@string/title_activity_party" >
         </activity>
+        <activity
+            android:name="me.menext.menext.SearchResults"
+            android:label="@string/title_activity_search_results" >
+        </activity>
     </application>
 
 </manifest>
