@@ -11,5 +11,6 @@
     <string name="new_party_button">Add!</string>
     <string name="joined_title">Joined Parties</string>
     <string name="unjoined_title">Unjoined Parties</string>
-    
+    <string name="new_video_message">New Song YouTube Id</string>
+    <string name="new_video_button">Add!</string>
 </resources>

@@ -1,12 +1,19 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${packageName}.${activityClass}" >
-
-    <TextView
-        android:id="@+id/test"
+    android:orientation="vertical" >
+ 	<EditText android:id="@+id/add_video"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:hint="@string/new_video_message" />
+ 	<Button android:id="@+id/add_video_button_id"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="@string/new_video_button" />
+ 	<ListView
+		android:id="@+id/queue_list"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent">
+	</ListView>
+</LinearLayout>
 
-</RelativeLayout>

@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
- 	<EditText android:id="@+id/new_party"
+ 	<EditText android:id="@+id/add_party"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
 		android:hint="@string/new_party_message" />
@@ -31,7 +31,7 @@
  	<Button
   		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
-    	android:id="@+id/logout_button"
+    	android:id="@+id/log_out_button"
         android:onClick="attemptLogOut"
         android:text="@string/action_logout" />
 </LinearLayout>
