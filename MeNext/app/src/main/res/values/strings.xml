@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MeNext</string>
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">741233612615975</string>
+    <string name="menext_url">https://menext.me</string>
+    <string name="menext_handler_url">https://menext.me/handler.php</string>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color
+        name="red"
+        >#EB2735</color>
+    <color
+        name="gray"
+        >#C7C7CC</color>
+    <color
+        name="white"
+        >#FFFFFF</color>
+</resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/red"
+        android:layout_height="45dp">
+        <com.facebook.widget.ProfilePictureView
+            android:id="@+id/joined_profile_pic"
+            android:adjustViewBounds="true"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft= "true"
+            android:gravity="right|center_vertical"
+            android:clickable="true"
+            android:padding="@dimen/profile_picture_padding"
+            facebook:preset_size="small" />
+        <ImageView
+            android:id="@+id/joined_logo"
+            android:adjustViewBounds="true"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="@dimen/title_bar_icon_padding"
+            android:src="@drawable/title_bar_logo"/>
+
+        <ImageView
+            android:id="@+id/joined_refresh"
+            android:adjustViewBounds="true"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:layout_toLeftOf="@+id/joined_plus"
+            android:gravity="right|center_vertical"
+            android:padding="@dimen/title_bar_icon_padding"
+            android:src="@drawable/refresh"/>
+        <ImageView
+            android:id="@+id/joined_plus"
+            android:adjustViewBounds="true"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:gravity="right|center_vertical"
+            android:padding="@dimen/title_bar_icon_padding"
+            android:clickable="true"
+            android:src="@drawable/plus"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/joined_title"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp"
+        android:textSize="30dp"
+        android:text="Joined Parties"
+        android:textColor="#FFFFFF"
+        android:gravity="center"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/joined_swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FFF">
+            <ListView
+                android:id="@+id/joined_party_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            </ListView>
+            <ProgressBar
+                android:id="@+id/joined_loading"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
