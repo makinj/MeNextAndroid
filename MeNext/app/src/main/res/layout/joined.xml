@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@color/red"
+        android:background="@color/primary"
         android:layout_height="45dp">
         <com.facebook.widget.ProfilePictureView
             android:id="@+id/joined_profile_pic"
