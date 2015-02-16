@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Red -->
     <color
-        name="red"
-        >#EB2735</color>
+        name="primary"
+        >#F44336</color>
+    <!-- Dark Red -->
+    <color
+        name="primary_dark"
+        >#D32F2F</color>
+    <color
+        name="accent"
+        >#F44336</color>
     <color
         name="gray"
         >#C7C7CC</color>
+    <color
+        name="black"
+        >#000000</color>
+
     <color
         name="white"
         >#FFFFFF</color>
