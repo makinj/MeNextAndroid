@@ -57,6 +57,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
             </ListView>
+
             <ImageButton
                 android:id="@+id/party_plus"
                 android:layout_width="@dimen/round_button_diamter"
@@ -67,9 +68,9 @@
                 android:tint="@android:color/white"
                 android:src="@android:drawable/ic_input_add"
                 android:background="@drawable/oval"
-
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true" />
+
             <ProgressBar
                 android:id="@+id/party_loading"
                 style="?android:attr/progressBarStyleLarge"

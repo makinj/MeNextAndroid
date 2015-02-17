@@ -86,7 +86,6 @@ public class PartyFragment extends Fragment {
                 }
             }
         });
-        plusButton.setOnTouchListener(activity.changeBackground);
         backButton.setOnTouchListener(activity.changeBackground);
         activity.partyThumbnailCache = new HashMap<>();
         return view;
