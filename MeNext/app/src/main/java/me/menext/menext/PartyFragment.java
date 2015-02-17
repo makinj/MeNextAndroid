@@ -48,13 +48,7 @@ public class PartyFragment extends Fragment {
                 refresh();
             }
         });
-        View refreshButton = view.findViewById(R.id.party_refresh);
 
-        refreshButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                refresh();
-            }
-        });
 
         View plusButton = view.findViewById(R.id.party_plus);
         View backButton = view.findViewById(R.id.party_back);
@@ -72,13 +66,6 @@ public class PartyFragment extends Fragment {
             }
         });
 
-        refreshButton = view.findViewById(R.id.party_refresh);
-
-        refreshButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                refresh();
-            }
-        });
 
         spinner = (ProgressBar)view.findViewById(R.id.party_loading);
 
@@ -99,7 +86,6 @@ public class PartyFragment extends Fragment {
                 }
             }
         });
-        refreshButton.setOnTouchListener(activity.changeBackground);
         plusButton.setOnTouchListener(activity.changeBackground);
         backButton.setOnTouchListener(activity.changeBackground);
         activity.partyThumbnailCache = new HashMap<>();

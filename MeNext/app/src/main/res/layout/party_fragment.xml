@@ -9,9 +9,22 @@
     android:background="@color/gray" >
 
     <RelativeLayout
-        android:background="@color/primary"
+        android:background="@color/primary_dark"
         android:layout_width="match_parent"
         android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/party_title"
+            android:background="@color/primary"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="0dp"
+            android:textSize="30sp"
+            android:text="Joined Parties"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:singleLine="true"/>
         <ImageView
             android:id="@+id/party_back"
             android:adjustViewBounds="true"
@@ -26,54 +39,9 @@
             android:paddingBottom="@dimen/title_bar_icon_padding"
             android:clickable="true"
             android:paddingRight="@dimen/title_bar_icon_padding"/>
-        <ImageView
-            android:id="@+id/party_logo"
-            android:adjustViewBounds="true"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:padding="@dimen/title_bar_icon_padding"
-            android:clickable="true"
-            android:src="@drawable/title_bar_logo"/>
 
-        <ImageView
-            android:id="@+id/party_refresh"
-            android:adjustViewBounds="true"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/party_plus"
-            android:gravity="right|center_vertical"
-            android:padding="@dimen/title_bar_icon_padding"
-            android:clickable="true"
-            android:src="@drawable/refresh"/>
-
-        <ImageView
-            android:id="@+id/party_plus"
-            android:adjustViewBounds="true"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:gravity="right|center_vertical"
-            android:clickable="true"
-            android:padding="@dimen/title_bar_icon_padding"
-            android:src="@drawable/plus"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/party_title"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="5dp"
-        android:textSize="30dp"
-        android:text="Joined Parties"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:singleLine="true"/>
     <android.support.v4.widget.SwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/party_swipe_container"
@@ -89,6 +57,19 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
             </ListView>
+            <ImageButton
+                android:id="@+id/party_plus"
+                android:layout_width="@dimen/round_button_diamter"
+                android:layout_height="@dimen/round_button_diamter"
+                android:layout_gravity="end|bottom"
+                android:layout_marginBottom="@dimen/add_button_margin"
+                android:layout_marginEnd="@dimen/add_button_margin"
+                android:tint="@android:color/white"
+                android:src="@android:drawable/ic_input_add"
+                android:background="@drawable/oval"
+
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
             <ProgressBar
                 android:id="@+id/party_loading"
                 style="?android:attr/progressBarStyleLarge"
@@ -97,5 +78,8 @@
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true" />
         </RelativeLayout>
+
+
+
     </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
