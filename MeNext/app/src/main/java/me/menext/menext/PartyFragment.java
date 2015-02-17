@@ -51,13 +51,6 @@ public class PartyFragment extends Fragment {
 
 
         View plusButton = view.findViewById(R.id.party_plus);
-        View backButton = view.findViewById(R.id.party_back);
-
-        backButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                activity.onBackPressed();
-            }
-        });
 
         plusButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -86,7 +79,6 @@ public class PartyFragment extends Fragment {
                 }
             }
         });
-        backButton.setOnTouchListener(activity.changeBackground);
         activity.partyThumbnailCache = new HashMap<>();
         return view;
     }
@@ -207,7 +199,7 @@ public class PartyFragment extends Fragment {
             final Submission submission = submissionsm.get(index);
 
             viewHolder.title.setText(submission.titlem);
-            viewHolder.username.setText("by: " + submission.usernamem);
+            viewHolder.username.setText(submission.usernamem);
             viewHolder.rating.setText(String.valueOf(submission.ratingm));
 
             if(submission.thumbnailm!=null){
