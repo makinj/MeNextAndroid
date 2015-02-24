@@ -5,7 +5,7 @@
     <dimen name="title_bar_icon_padding">10dp</dimen>
     <dimen name="profile_picture_padding">8dp</dimen>
 
-    <dimen name="round_button_diamter">48dp</dimen>
+    <dimen name="round_button_diamter">56dp</dimen>
     <dimen name="add_button_margin">16dp</dimen>
     <dimen name="elevation_low">1dp</dimen>
     <dimen name="elevation_high">8dp</dimen>
