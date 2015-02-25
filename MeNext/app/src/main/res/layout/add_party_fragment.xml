@@ -6,26 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/gray" >
+    android:background="@color/background_material_dark" >
 
     <RelativeLayout
         android:background="@color/primary"
         android:layout_width="match_parent"
         android:layout_height="45dp">
-        <ImageView
-            android:id="@+id/add_party_back"
-            android:adjustViewBounds="true"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft= "true"
-            android:gravity="right|center_vertical"
-            android:src="@drawable/back"
-            android:paddingLeft="@dimen/title_bar_icon_padding"
-            android:paddingTop="@dimen/title_bar_icon_padding"
-            android:paddingBottom="@dimen/title_bar_icon_padding"
-            android:clickable="true"
-            android:paddingRight="@dimen/title_bar_icon_padding"/>
+
         <ImageView
             android:id="@+id/add_party_logo"
             android:adjustViewBounds="true"

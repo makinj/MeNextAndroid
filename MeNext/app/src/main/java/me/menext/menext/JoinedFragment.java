@@ -51,13 +51,6 @@ public class JoinedFragment extends Fragment {
                 refresh();
             }
         });
-        View refreshButton = view.findViewById(R.id.joined_refresh);
-
-        refreshButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                refresh();
-            }
-        });
 
         View plusButton = view.findViewById(R.id.joined_plus);
 
@@ -87,8 +80,6 @@ public class JoinedFragment extends Fragment {
             }
         });
 
-        refreshButton.setOnTouchListener(activity.changeBackground);
-        plusButton.setOnTouchListener(activity.changeBackground);
         profilePictureView.setOnTouchListener(activity.changeBackground);
 
         return view;

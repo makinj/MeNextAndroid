@@ -31,13 +31,6 @@ public class AddPartyFragment extends Fragment {
 
         view = inflater.inflate(R.layout.add_party_fragment, container, false);
 
-        View backButton = view.findViewById(R.id.add_party_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                activity.onBackPressed();
-            }
-        });
-
         partyId = (EditText)view.findViewById(R.id.add_party_partyId);
 
         Button joinButton = (Button)view.findViewById(R.id.add_party_join);
