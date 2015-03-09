@@ -44,7 +44,7 @@ public class AddPartyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(!partyName.getText().equals("")) {
-                    activity.showJoinPopup(Integer.valueOf(partyId.getText().toString()));
+                    activity.showCreatePopup(partyName.getText().toString());
                 }
             }
         });
