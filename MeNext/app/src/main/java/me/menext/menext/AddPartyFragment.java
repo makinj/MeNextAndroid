@@ -24,6 +24,7 @@ public class AddPartyFragment extends Fragment {
     MainActivity activity;
     private View view;
     EditText partyId;
+    EditText partyName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,10 +32,24 @@ public class AddPartyFragment extends Fragment {
 
         view = inflater.inflate(R.layout.add_party_fragment, container, false);
 
-        partyId = (EditText)view.findViewById(R.id.add_party_partyId);
+        partyId = (EditText)view.findViewById(R.id.join_party_partyId);
+        partyName = (EditText)view.findViewById(R.id.add_party_partyName);
 
-        Button joinButton = (Button)view.findViewById(R.id.add_party_join);
+        Button joinButton = (Button)view.findViewById(R.id.join_party_join);
+        Button createButton = (Button)view.findViewById(R.id.add_party_join);
 
+
+        // For Creating New Parties
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!partyName.getText().equals("")) {
+                    activity.showJoinPopup(Integer.valueOf(partyId.getText().toString()));
+                }
+            }
+        });
+
+        // For Joining Existing Parties
         joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +58,7 @@ public class AddPartyFragment extends Fragment {
                 }
             }
         });
-        Button qrButton = (Button)view.findViewById(R.id.add_party_scan);
+        Button qrButton = (Button)view.findViewById(R.id.join_party_scan);
 
         qrButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

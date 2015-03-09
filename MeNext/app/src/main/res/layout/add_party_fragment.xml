@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_material_dark" >
+    android:background="@color/background_material_dark"
+    android:weightSum="2"
+    >
 
     <RelativeLayout
         android:background="@color/primary"
@@ -25,27 +27,70 @@
             android:clickable="true"
             android:src="@drawable/title_bar_logo"/>
     </RelativeLayout>
-
     <TextView
         android:id="@+id/add_party_title"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="5dp"
         android:textSize="30dp"
-        android:text="Join Party"
+        android:text="Create Party"
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:includeFontPadding="false"
         android:singleLine="true"/>
 
+
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFF"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
+
+                <EditText
+                    android:id="@+id/add_party_partyName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:hint="Enter party name"
+                    android:inputType="text"/>
+                <Button
+                    android:id="@+id/add_party_join"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Create"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <TextView
+                android:id="@+id/join_party_title"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="5dp"
+                android:textSize="30dp"
+                android:text="Join Party"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:singleLine="true"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="#FFF"
             android:orientation="vertical"
             android:gravity="center_horizontal"
             >
             <TextView
+                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Enter party ID manually"
@@ -57,26 +102,26 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/add_party_partyId"
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"/>
+                android:id="@+id/join_party_partyId"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
                 <Button
-                    android:id="@+id/add_party_join"
+                    android:id="@+id/join_party_join"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Join"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OR"/>
-            <Button
-                android:id="@+id/add_party_scan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Scan QR"/>
-
         </LinearLayout>
-</LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OR"/>
+                <Button
+                    android:id="@+id/join_party_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scan QR"/>
+
+            </LinearLayout>
+        </LinearLayout>
