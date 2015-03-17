@@ -7,36 +7,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/gray" >
-
     <RelativeLayout
         android:background="@color/primary"
         android:layout_width="match_parent"
         android:layout_height="45dp">
+
         <ImageView
-            android:id="@+id/search_back"
+            android:id="@+id/add_party_logo"
             android:adjustViewBounds="true"
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft= "true"
-            android:gravity="right|center_vertical"
-            android:src="@drawable/back"
-            android:paddingLeft="@dimen/title_bar_icon_padding"
-            android:paddingTop="@dimen/title_bar_icon_padding"
-            android:paddingBottom="@dimen/title_bar_icon_padding"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="@dimen/title_bar_icon_padding"
             android:clickable="true"
-            android:paddingRight="@dimen/title_bar_icon_padding"/>
+            android:src="@drawable/title_bar_logo"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/background_material_dark"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        >
+
         <RelativeLayout
-            android:layout_toRightOf="@+id/search_back"
             android:layout_toLeftOf="@+id/search_search"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            >
             <EditText
                 android:layout_height="fill_parent"
                 android:layout_width="match_parent"
                 android:id="@+id/search_bar"
                 android:layout_centerVertical="true"
-                android:hint="Search Here"
+                android:hint="Search"
                 android:gravity="center_vertical"
                 android:textColor="@color/white"
                 android:singleLine="true"

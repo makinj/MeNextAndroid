@@ -59,6 +59,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#FFF">
+
             <ListView
                 android:id="@+id/joined_party_list"
                 android:layout_width="fill_parent"
@@ -71,18 +72,20 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true" />
-            <ImageButton
+            <Button
                 android:id="@+id/joined_plus"
                 android:layout_width="@dimen/round_button_diamter"
                 android:layout_height="@dimen/round_button_diamter"
                 android:layout_gravity="end|bottom"
                 android:layout_marginBottom="@dimen/add_button_margin"
                 android:layout_marginEnd="@dimen/add_button_margin"
-                android:tint="@android:color/white"
-                android:src="@android:drawable/ic_input_add"
-                android:background="@drawable/oval"
+                android:background="@drawable/fab_button"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:text="+"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"/>
         </RelativeLayout>
     </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

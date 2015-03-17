@@ -41,13 +41,6 @@ public class SearchFragment extends Fragment {
 
         resultListView = (ListView)view.findViewById(R.id.search_result_list);
 
-        View backButton = view.findViewById(R.id.search_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                activity.onBackPressed();
-            }
-        });
-
 
         searchBar = (EditText)view.findViewById(R.id.search_bar);
 
@@ -80,7 +73,6 @@ public class SearchFragment extends Fragment {
         spinner = (ProgressBar)view.findViewById(R.id.search_loading);
 
         searchButton.setOnTouchListener(activity.changeBackground);
-        backButton.setOnTouchListener(activity.changeBackground);
         activity.searchThumbnailCache = new HashMap<>();
         return view;
     }

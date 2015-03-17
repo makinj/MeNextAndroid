@@ -53,7 +53,7 @@
                 android:dividerHeight="10dp"
                 />
 
-            <ImageButton
+            <Button
                 android:id="@+id/party_plus"
                 android:layout_width="@dimen/round_button_diamter"
                 android:layout_height="@dimen/round_button_diamter"
@@ -61,10 +61,13 @@
                 android:layout_marginBottom="@dimen/add_button_margin"
                 android:layout_marginEnd="@dimen/add_button_margin"
                 android:tint="@android:color/white"
-                android:src="@android:drawable/ic_input_add"
-                android:background="@drawable/oval"
+                android:background="@drawable/fab_button"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:text="+"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"/>
 
             <ProgressBar
                 android:id="@+id/party_loading"
