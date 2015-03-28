@@ -144,8 +144,8 @@ public class PartyFragment extends Fragment {
         partyName.setText(partym.namem);
 
         TextView partyID = (TextView)view.findViewById(R.id.party_id);
+
         partyID.setText(String.valueOf(partym.partyIdm));
-        //partyID.setText(partym.partyIdm);
 
         swipeLayout.setRefreshing(false);
     }

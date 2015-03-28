@@ -171,6 +171,17 @@ public class JoinedFragment extends Fragment {
                     //spinner.setVisibility(View.VISIBLE);
                 }
             });
+
+            View removeButton = view.findViewById(R.id.joined_party_remove);
+
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        activity.showUnjoinPopup(Integer.valueOf(party.partyIdm));
+                    }
+
+            });
+
             return view;
         }
     }

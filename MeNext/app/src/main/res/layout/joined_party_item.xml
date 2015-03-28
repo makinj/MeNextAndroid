@@ -11,6 +11,17 @@
         android:textSize="25dp"
         android:layout_margin="5dp" />
 
+    <ImageView
+            android:id="@+id/joined_party_remove"
+            android:adjustViewBounds="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:gravity="right|center_vertical"
+            android:layout_margin="10dp"
+            android:src="@drawable/remove" />
     <ProgressBar
         android:id="@+id/joined_party_item_loading"
         style="?android:attr/progressBarStyleLarge"

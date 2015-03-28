@@ -332,10 +332,10 @@ public class MainActivity extends FragmentActivity {
     public void showCreatePopup(final String partyName){
         while (isFinishing());
         // Inflate the popup_layout.xml
-        RelativeLayout viewGroup = (RelativeLayout) MainActivity.this.findViewById(R.id.add_popup);
+        RelativeLayout viewGroup = (RelativeLayout) MainActivity.this.findViewById(R.id.popup);
         LayoutInflater layoutInflater = (LayoutInflater) MainActivity.this
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View layout = layoutInflater.inflate(R.layout.create_popup, viewGroup);
+        final View layout = layoutInflater.inflate(R.layout.join_popup, viewGroup);
 
 
         // Creating the PopupWindow
@@ -350,12 +350,12 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        TextView title = (TextView)layout.findViewById(R.id.add_popup_title);
+        TextView title = (TextView)layout.findViewById(R.id.join_popup_title);
         title.setText("Are you sure you want to create a party with name "+partyName+"?");
 
-        final ProgressBar spinner = (ProgressBar)layout.findViewById(R.id.add_popup_loading);
+        final ProgressBar spinner = (ProgressBar)layout.findViewById(R.id.join_popup_loading);
 
-        Button close = (Button)layout.findViewById(R.id.add_popup_close);
+        Button close = (Button)layout.findViewById(R.id.join_popup_close);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -363,12 +363,59 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        Button create = (Button)layout.findViewById(R.id.add_popup_join);
+        Button create = (Button)layout.findViewById(R.id.join_popup_join);
+        create.setText("Create");
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 spinner.setVisibility(View.VISIBLE);
                 addParty(partyName, popup);
+            }
+        });
+
+    }
+    //show popup prompting user to unjoin a party
+    public void showUnjoinPopup(final int partyId){
+        while (isFinishing());
+        // Inflate the popup_layout.xml
+        RelativeLayout viewGroup = (RelativeLayout) MainActivity.this.findViewById(R.id.popup);
+        LayoutInflater layoutInflater = (LayoutInflater) MainActivity.this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View layout = layoutInflater.inflate(R.layout.join_popup, viewGroup);
+
+
+        // Creating the PopupWindow
+        final PopupWindow popup = new PopupWindow(MainActivity.this);
+        popup.setContentView(layout);
+        popup.setWindowLayoutMode(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup.setFocusable(true);
+
+        findViewById(R.id.main_page_layout).post(new Runnable() {
+            public void run() {
+                popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
+            }
+        });
+
+        TextView title = (TextView)layout.findViewById(R.id.join_popup_title);
+        title.setText("Are you sure you want to unjoin this Party?");
+
+        final ProgressBar spinner = (ProgressBar)layout.findViewById(R.id.join_popup_loading);
+
+        Button close = (Button)layout.findViewById(R.id.join_popup_close);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+
+        Button join = (Button)layout.findViewById(R.id.join_popup_join);
+        join.setText("Unjoin");
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spinner.setVisibility(View.VISIBLE);
+                unjoinParty(partyId,popup);
             }
         });
 
@@ -554,6 +601,9 @@ public class MainActivity extends FragmentActivity {
     }
     public void addParty(String partyName, PopupWindow popup){
         new AddTask(partyName, popup).execute();
+    }
+    public void unjoinParty(int partyId, PopupWindow popup){
+        new UnjoinTask(partyId, popup).execute();
     }
 
 
@@ -893,6 +943,36 @@ public class MainActivity extends FragmentActivity {
             List<NameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("action", "createParty"));
             params.add(new BasicNameValuePair("name", String.valueOf(partyNamem)));
+            return sh.makeServiceCall(POST, params);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if (result == null) {
+                Log.w("MeNext", "MeNext requires an internet connection");
+            } else {
+                //Log.w("MeNext", result);
+                popupm.dismiss();
+                refreshJoined();
+                clearBackStack();
+                showFragment(JOINED, false);
+            }
+        }
+    }
+    class UnjoinTask extends AsyncTask<Void, Void, String> {
+        private PopupWindow popupm;
+        private int partyIdm;
+        public UnjoinTask(int partyId, PopupWindow popup){
+            popupm=popup;
+            partyIdm=partyId;
+        }
+
+        @Override
+        protected String doInBackground(Void ... tmp) {
+            List<NameValuePair> params = new ArrayList<>();
+            params.add(new BasicNameValuePair("action", "unjoinParty"));
+            params.add(new BasicNameValuePair("partyId", String.valueOf(partyIdm)));
             return sh.makeServiceCall(POST, params);
         }
 
