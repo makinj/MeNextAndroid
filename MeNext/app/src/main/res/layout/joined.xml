@@ -50,21 +50,31 @@
         android:textColor="#FFFFFF"
         android:gravity="center"/>
 
+
     <android.support.v4.widget.SwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/joined_swipe_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#FFF">
+            android:background="@color/white">
 
             <ListView
                 android:id="@+id/joined_party_list"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="fill_parent"
+                android:divider="@null"
+                android:dividerHeight="10dp"
+                android:listSelector="@android:color/white"
+                android:cacheColorHint="@android:color/transparent"
+                android:headerDividersEnabled="true"
+                android:footerDividersEnabled="true"
+                >
             </ListView>
+
             <ProgressBar
                 android:id="@+id/joined_loading"
                 style="?android:attr/progressBarStyleLarge"
@@ -72,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true" />
+
             <Button
                 android:id="@+id/joined_plus"
                 android:layout_width="@dimen/round_button_diamter"
@@ -86,6 +97,8 @@
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/white"/>
+
         </RelativeLayout>
+
     </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
