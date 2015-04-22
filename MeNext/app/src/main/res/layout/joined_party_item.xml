@@ -10,15 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cv"
-        card_view:cardCornerRadius="4dp"
+        card_view:cardCornerRadius="8dp"
         android:layout_margin="0dp"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF"
-            android:padding="4dp">
+            android:background="#fff"
+            android:padding="4dp"
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -26,7 +27,7 @@
                 android:id="@+id/party_photo"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/record"
+                android:src="@drawable/bogg"
                 android:layout_marginRight="8dp"/>
 
             <TextView
@@ -35,8 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/party_photo"
                 android:gravity="start|center_vertical"
-                android:textSize="30sp"
-                android:layout_margin="5dp" />
+                android:textSize="22sp"
+                android:layout_margin="4dp" />
 
             <ImageView
                     android:id="@+id/joined_party_remove"
