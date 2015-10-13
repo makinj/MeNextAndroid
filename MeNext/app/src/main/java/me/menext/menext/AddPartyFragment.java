@@ -43,7 +43,7 @@ public class AddPartyFragment extends Fragment {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!partyName.getText().equals("")) {
+                if(!partyName.getText().toString().equals("")) {
                     activity.showCreatePopup(partyName.getText().toString());
                 }
             }
@@ -53,7 +53,7 @@ public class AddPartyFragment extends Fragment {
         joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!partyId.getText().equals("")) {
+                if(!partyId.getText().toString().equals("")) {
                     activity.showJoinPopup(Integer.valueOf(partyId.getText().toString()));
                 }
             }
