@@ -27,7 +27,6 @@
                 android:id="@+id/party_photo"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/bogg"
                 android:layout_marginRight="8dp"/>
 
             <TextView

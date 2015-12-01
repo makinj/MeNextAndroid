@@ -351,7 +351,7 @@ public class MainActivity extends FragmentActivity {
         });
 
         TextView title = (TextView)layout.findViewById(R.id.join_popup_title);
-        title.setText("Are you sure you want to create a party with name "+partyName+"?");
+        title.setText("Are you sure you want to create a party with name " + partyName + "?");
 
         final ProgressBar spinner = (ProgressBar)layout.findViewById(R.id.join_popup_loading);
 
@@ -415,7 +415,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 spinner.setVisibility(View.VISIBLE);
-                unjoinParty(partyId,popup);
+                unjoinParty(partyId, popup);
             }
         });
 
@@ -542,6 +542,20 @@ public class MainActivity extends FragmentActivity {
         return sh.makeServiceCall(GET, "https://www.googleapis.com/youtube/v3/search", params);
     }
 
+    //build and send http request for getting the results of a Soundcloud search
+    //Note: cannot be called in the ui thread(that's why we use asynctask)
+    private static String getSearchResultsSC (String querySC){
+        List<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("part","snippet"));
+        params.add(new BasicNameValuePair("order","relevance"));
+        params.add(new BasicNameValuePair("type","video"));
+        params.add(new BasicNameValuePair("maxResults","25"));
+        params.add(new BasicNameValuePair("", ""));
+        params.add(new BasicNameValuePair("q", querySC));
+        params.add(new BasicNameValuePair("key", "175a22da7ae24b54b87b5acb726da254"));
+
+        return sh.makeServiceCall(GET, "https://api.soundcloud.com", params);
+    }
     //calls asynctask to refresh the list of joined parties
     public void refreshJoined(){
         if(authenticated) {
@@ -560,6 +574,9 @@ public class MainActivity extends FragmentActivity {
     public void refreshSearch(String query){
         new GetSearchResultsTask(query).execute();
     }
+
+    //calls asynctask to refesh the list of search results from SoundCloud
+    public void refreshSearch(String querySC) {new GetSearchResultsTaskSC(querySC).execute();}
 
     //goes to Party fragment and sets the party to be loaded
     public void setParty(Party party){
@@ -842,6 +859,44 @@ public class MainActivity extends FragmentActivity {
         @Override
         protected String doInBackground(Void ... params) {
             return MainActivity.getSearchResults(querym);
+        }
+
+        @Override
+        protected void onPostExecute(String sresult) {
+            super.onPostExecute(sresult);
+            if(sresult==null){
+                Log.w("MeNext", "MeNext requires an internet connection");
+            }else {
+                //Log.w("MeNext", sresult);
+                try {
+                    JSONObject jResult = new JSONObject(sresult);
+                    JSONArray jSearchResults = jResult.getJSONArray("items");
+                    List<SearchResult> results = new ArrayList<>();
+
+                    for (int i = 0; i < jSearchResults.length(); i++) {
+                        SearchResult result = new SearchResult(jSearchResults.getJSONObject(i));
+                        results.add(result);
+                    }
+                    ((SearchFragment) fragments[SEARCH]).drawResults(results);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            //Do anything with response..
+        }
+    }
+
+    class GetSearchResultsTaskSC extends AsyncTask<Void, Void, String> {
+
+        String querym;
+
+        public GetSearchResultsTaskSC(String querySC){
+            querym=query;
+        }
+
+        @Override
+        protected String doInBackground(Void ... params) {
+            return MainActivity.getSearchResultsSC(querym);
         }
 
         @Override
